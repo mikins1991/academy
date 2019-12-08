@@ -1,1 +1,1 @@
-"# itacademy" 
+"# academy" 
