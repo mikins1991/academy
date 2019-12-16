@@ -1,35 +1,39 @@
-const pricePhone = 250.2555;
-const priceAcces = 25.4646;
+let pricePhone = 250.256;
+let priceAcces = 21.354;
 const taxNds = 20;
-const limit = 400;
-let bank = 1000;
 
 let myBasket = 0;
 let n = 0;
-let m = 0;
 let pricePhoneNds = pricePhone + pricePhone * taxNds / 100;
 let priceAccesNds = priceAcces + priceAcces * taxNds / 100;
-console.log(`Стоимость одного телефона с НДС: ${pricePhoneNds}`);
-console.log(`Стоимость одного телефона с НДС: ${priceAccesNds}`);
 
-// let newBank = document.getElementById('js-btn');
-// newBank.onclick = function () {
-//     bank = document.getElementById('js-bank').value;
-//     //console.log(bank);
-// }
-// console.log(bank);
+let resPhone = document.getElementById('js-resPhone');
+let newBank = document.getElementById('js-btn');
 
-if (myBasket + pricePhoneNds + priceAccesNds < limit) {
-    while (myBasket + pricePhoneNds + priceAccesNds < bank) {
-        myBasket = myBasket + pricePhoneNds + priceAccesNds;
-        n += 1;
+newBank.onclick = function () {
+    getBank();
+}
+
+let getBank = function () {
+    let bank = document.getElementById('js-bank').value;
+    let limit = document.getElementById('js-limit').value;
+    if (bank < pricePhoneNds) {
+        resPhone.innerHTML = `Покупка не возможна. Недостаточно средств`;
+    } else if (myBasket + pricePhoneNds + priceAccesNds < limit) {
+        while (myBasket + pricePhoneNds + priceAccesNds < bank) {
+            myBasket = myBasket + pricePhoneNds + priceAccesNds;
+            n += 1;
+        }
+        resPhone.innerHTML = `Общая стоимость ${n} телефонов и ${n} аксессуров, с учетом НДС: $${myBasket.toFixed(2)}.
+        <br>Остаток на счете: $${(bank - myBasket).toFixed(2)}`;
+    } else {
+        while (myBasket + pricePhoneNds < bank) {
+            myBasket = myBasket + pricePhoneNds;
+            n += 1;
+        }
+        resPhone.innerHTML = `Общая стоимость ${n} телефонов, с учетом НДС: $${myBasket.toFixed(2)}. 
+        <br>Остаток на счете: $${(bank - myBasket).toFixed(2)}.
+        <br>Для покупки, аксессуаров превышен установленный лимит.`;
     }
-    alert(`Общая стоимость ${n} телефонов и ${n} аксессуров, с учетом НДС: $${myBasket.toFixed(2)}`);
-} else {
-    while (myBasket + pricePhoneNds < bank) {
-        myBasket = myBasket + pricePhoneNds;
-        n += 1;
-    }
-    alert(`Общая стоимость ${n} телефонов, с учетом НДС: $${myBasket.toFixed(2)}`);
 }
 

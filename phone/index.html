@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="main.css">
+
 </head>
 
 <body>
@@ -13,9 +15,17 @@
         Задача на покупку телефона
     </h2>
     <div>
-        <h4>Заполните баланс своего банковского счета</h4>
-        <input type="number" id="js-bank" value="">
-        <button id="js-btn">ввести балланс</button>
+        <h4>Заполните баланс своего банковского счета, $</h4>
+        <input type="number" id="js-bank" value="" max="999999" min="1">
+        <h4>Установить лимит для одной операции, $</h4>
+        <input type="number" id="js-limit" value="300">
+        <p>Cтоимость телефона - 250.256 $</p>
+        <p>Cтоимость аксессуара - 21.354 $</p>
+        <p>Налоговая ставка - 20 %</p>
+        <button id="js-btn" class="btn">Расчитать</button>
+    </div>
+    <div>
+        <p id="js-resPhone"> </p>
     </div>
 
     <script src="js/script.js"></script>
