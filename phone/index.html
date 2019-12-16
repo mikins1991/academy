@@ -13,10 +13,21 @@
         Задача на покупку телефона
     </h2>
     <div>
-        <h4>Заполните баланс своего банковского счета</h4>
+        <h4>Заполните баланс своего банковского счета, $</h4>
         <input type="number" id="js-bank" value="">
-        <button id="js-btn">ввести балланс</button>
+        <h4>Установить лимит для одной операции, $</h4>
+        <input type="number" id="js-limit" value="300">
+        <p>Cтоимость телефона - 250.256 $</p>
+        <p>Cтоимость аксессуара - 21.354 $</p>
+        <p>Налоговая ставка - 20 %</p>
+        <button id="js-btn">произвести расчет стоимости и количества телефонов</button>
     </div>
+    <div>
+
+    </div>
+    <p id="js-resPricePhoneNds"></p>
+    <p id="js-resPriceAccesNds"></p>
+    <p id="js-resPhone"> </p>
 
     <script src="js/script.js"></script>
 </body>
