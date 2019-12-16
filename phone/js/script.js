@@ -1,11 +1,11 @@
-let pricePhone = 250.256;
+let pricePhone = 250.254;
 let priceAcces = 21.354;
-const taxNds = 20;
+const tax = 20;
 
 let myBasket = 0;
 let n = 0;
-let pricePhoneNds = pricePhone + pricePhone * taxNds / 100;
-let priceAccesNds = priceAcces + priceAcces * taxNds / 100;
+let pricePhoneNds = pricePhone + pricePhone * tax / 100;
+let priceAccesNds = priceAcces + priceAcces * tax / 100;
 
 let resPhone = document.getElementById('js-resPhone');
 let newBank = document.getElementById('js-btn');
