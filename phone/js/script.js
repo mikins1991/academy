@@ -1,4 +1,4 @@
-let pricePhone = 250.256;
+let pricePhone = 250;
 let priceAcces = 21.354;
 const taxNds = 20;
 
@@ -17,9 +17,7 @@ newBank.onclick = function () {
 let getBank = function () {
     let bank = document.getElementById('js-bank').value;
     let limit = document.getElementById('js-limit').value;
-    if (bank < limit || bank < pricePhoneNds) {
-        resPhone.innerHTML = `Покупка не возможна. Недостаточно средств`;
-    } else if (myBasket + pricePhoneNds + priceAccesNds < limit) {
+    if (myBasket + pricePhoneNds + priceAccesNds < limit) {
         while (myBasket + pricePhoneNds + priceAccesNds < bank) {
             myBasket = myBasket + pricePhoneNds + priceAccesNds;
             n += 1;
