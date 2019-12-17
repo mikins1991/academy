@@ -14,26 +14,36 @@ newBank.onclick = function () {
     getBank();
 }
 
-let getBank = function () {
-    let bank = document.getElementById('js-bank').value;
+function getBank() {
     let limit = document.getElementById('js-limit').value;
+    let bank = document.getElementById('js-bank').value;
     if (bank < pricePhoneNds) {
         resPhone.innerHTML = `Покупка не возможна. Недостаточно средств`;
-    } else if (myBasket + pricePhoneNds + priceAccesNds < limit) {
-        while (myBasket + pricePhoneNds + priceAccesNds < bank) {
-            myBasket = myBasket + pricePhoneNds + priceAccesNds;
-            n += 1;
-        }
-        resPhone.innerHTML = `Общая стоимость ${n} телефонов и ${n} аксессуров, с учетом НДС: $${myBasket.toFixed(2)}.
-        <br>Остаток на счете: $${(bank - myBasket).toFixed(2)}`;
+    } else if (pricePhoneNds + priceAccesNds < limit) {
+        getResultPhoneAcces();
     } else {
-        while (myBasket + pricePhoneNds < bank) {
-            myBasket = myBasket + pricePhoneNds;
-            n += 1;
-        }
-        resPhone.innerHTML = `Общая стоимость ${n} телефонов, с учетом НДС: $${myBasket.toFixed(2)}. 
-        <br>Остаток на счете: $${(bank - myBasket).toFixed(2)}.
-        <br>Для покупки, аксессуаров превышен установленный лимит.`;
+        getResultPhone();
     }
 }
 
+function getResultPhoneAcces() {
+    bank = document.getElementById('js-bank').value;
+    while (myBasket + pricePhoneNds + priceAccesNds < bank) {
+        myBasket = myBasket + pricePhoneNds + priceAccesNds;
+        n += 1;
+    }
+    resPhone.innerHTML = `Общая стоимость ${n} телефонов и ${n} аксессуров, с учетом НДС: $${myBasket.toFixed(2)}.
+    <br>Остаток на счете: $${(bank - myBasket).toFixed(2)}`;
+}
+
+function getResultPhone() {
+    bank = document.getElementById('js-bank').value;
+    while (myBasket + pricePhoneNds < bank) {
+        myBasket = myBasket + pricePhoneNds;
+        n += 1;
+    }
+    resPhone.innerHTML = `Общая стоимость ${n} телефонов, с учетом НДС: $${myBasket.toFixed(2)}. 
+    <br>Остаток на счете: $${(bank - myBasket).toFixed(2)}.
+    <br>Для покупки, аксессуаров превышен установленный лимит.`;
+}
+//19,30,40 строки
