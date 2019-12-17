@@ -15,19 +15,18 @@ newBank.onclick = function () {
 }
 
 function getBank() {
-    let limit = document.getElementById('js-limit').value;
     let bank = document.getElementById('js-bank').value;
+    let limit = document.getElementById('js-limit').value;
     if (bank < pricePhoneNds) {
         resPhone.innerHTML = `Покупка не возможна. Недостаточно средств`;
     } else if (pricePhoneNds + priceAccesNds < limit) {
-        getResultPhoneAcces();
+        getResultPhoneAcces(bank);
     } else {
-        getResultPhone();
+        getResultPhone(bank);
     }
 }
 
-function getResultPhoneAcces() {
-    bank = document.getElementById('js-bank').value;
+function getResultPhoneAcces(bank) {
     while (myBasket + pricePhoneNds + priceAccesNds < bank) {
         myBasket = myBasket + pricePhoneNds + priceAccesNds;
         n += 1;
@@ -36,8 +35,7 @@ function getResultPhoneAcces() {
     <br>Остаток на счете: $${(bank - myBasket).toFixed(2)}`;
 }
 
-function getResultPhone() {
-    bank = document.getElementById('js-bank').value;
+function getResultPhone(bank) {
     while (myBasket + pricePhoneNds < bank) {
         myBasket = myBasket + pricePhoneNds;
         n += 1;
@@ -46,4 +44,3 @@ function getResultPhone() {
     <br>Остаток на счете: $${(bank - myBasket).toFixed(2)}.
     <br>Для покупки, аксессуаров превышен установленный лимит.`;
 }
-//19,30,40 строки
