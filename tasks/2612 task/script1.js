@@ -17,3 +17,4 @@ function accum(str) {
     return result;
 }
 console.log(accum("abcd"));
+
