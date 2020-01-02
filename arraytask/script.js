@@ -14,5 +14,4 @@ console.log(sumArr([4, 1, 2, 4]));
 console.log(sumArr([1, 2, 4, 4]));
 console.log(sumArr([1, 2, 3, 4]));
 console.log(sumArr([6, 1, 2, 4]));
-console.log(sumArr([6, 5, 1, 3]));
 console.log(sumArr([6, 1, 3, 4]));
