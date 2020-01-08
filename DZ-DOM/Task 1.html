@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <style>
+    a {
+      color: #369;
+      font: 1em Arial, sans-serif;
+    }
+
+    .play {
+      width: 100px;
+      height: 100px;
+      background-color: #369;
+      border-radius: 100px;
+      position: fixed;
+      top: 100px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="play"></div>
+  <a href="#" class="link">Анимация</a>
+  <script>
+    let link = document.querySelector('.link');
+    let play = document.querySelector('.play');
+    link.onclick = function () {
+      play.style = 'opacity:0.5;';
+    }
+  </script>
+</body>
