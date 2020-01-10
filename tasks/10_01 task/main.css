@@ -19,6 +19,7 @@ p {
     width: 300px;
     padding: 10px 0;
     padding: 10px 10px;
+    border: 2px solid lightgray;
 }
 
 header {
@@ -49,33 +50,43 @@ li {
     border-radius: 20%;
     font-size: 16px;
     color: white;
+    border: none;
+    outline: none;
+    margin-top: 1rem;
+    border: 2px solid lightgray;
+
 
 }
 .addInput {
-    background: white;
     font-size: 12px;
     border-radius: 5px;
     width: 400px;
     padding: 10px 0;
     padding: 10px 10px;
 }
+button{
+    outline: none;
+}
 
 .addBtn {
+    background: white;
+
     background: green;
     color: black;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 700;
     border-radius: 5px;
     width: 100px;
     border: 0;
     padding: 10px 0;
+    color: white;
+
 
 }
 .addBook {
     text-align: center;
     padding-top: 10px;
     padding-bottom: 30px;
-    color: white;
     
 }
 
