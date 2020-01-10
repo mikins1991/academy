@@ -1,0 +1,81 @@
+body {
+  margin: 0 30rem;
+    
+}
+
+h2 {
+    padding-left: 10px; 
+}
+
+p {
+    padding-left: 10px;
+    font-size: 18px;
+}
+
+.searchInput {
+    background: white;
+    font-size: 12px;
+    border-radius: 5px;
+    width: 300px;
+    padding: 10px 0;
+    padding: 10px 10px;
+}
+
+header {
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 30px;
+    background: #ccc8c8da;
+}
+ul, li {
+    
+    padding: 0 15px ;
+    margin: 0;
+}
+li {
+    
+    display: flex;
+    border-left: 4px solid #ccc8c8da;
+    padding: 0rem;
+    margin: 1rem;
+}
+
+.btn {
+    margin-left: auto;    
+}
+
+.btnDelete {
+    background-color: red;
+    border-radius: 20%;
+    font-size: 16px;
+    color: white;
+
+}
+.addInput {
+    background: white;
+    font-size: 12px;
+    border-radius: 5px;
+    width: 400px;
+    padding: 10px 0;
+    padding: 10px 10px;
+}
+
+.addBtn {
+    background: green;
+    color: black;
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 5px;
+    width: 100px;
+    border: 0;
+    padding: 10px 0;
+
+}
+.addBook {
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 30px;
+    color: white;
+    
+}
+
