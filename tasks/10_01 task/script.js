@@ -8,3 +8,13 @@ addBtn.onclick = function () {
     let str = Math.random().toString(36).substring(2, 5);
     addBtn.innerHTML = `${str}`;
 }
+
+let block = document.getElementsByClassName('block');
+for (i = 0; i < block.length; i++) {
+    block[i].addEventListener('click', function (event) {
+
+        if (event.target.className == "btnDelete") {
+            event.currentTarget.remove();
+        }
+    });
+}
