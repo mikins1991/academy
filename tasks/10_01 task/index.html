@@ -14,14 +14,14 @@
         <h1 id="nameApp">
             Books App
         </h1>
-        <input type="search" placeholder="Searth books..." class="searchInput" required>
+        <input type="search" placeholder="Searth books..." class="searchInput" value="" required>
     </header>
     <div class="boolsRead">
         <h2>
             Books to Read
         </h2>
         <ul class="menu">
-            <li class="block">
+            <li class="list">
                 <p class="blockText">
                     Name of the Wind
                 </p>
@@ -31,7 +31,7 @@
                     </button>
                 </div>
             </li>
-            <li class="block">
+            <li class="list">
                 <p class="blockText">
                     The Wise Man's Fear
                 </p>
@@ -41,7 +41,7 @@
                     </button>
                 </div>
             </li>
-            <li class="block">
+            <li class="list">
                 <p class="blockText">
                     Kafka on the Shore
                 </p>
@@ -51,7 +51,7 @@
                     </button>
                 </div>
             </li>
-            <li class="block">
+            <li class="list">
                 <p class="blockText">
                     The Master and the Margarita
                 </p>
@@ -63,7 +63,12 @@
             </li>
         </ul>
     </div>
-
+    <span>
+        <p>
+            <input type="checkbox" name="Hide" id="check" onclick="checkFun()">
+            Hide
+        </p>
+    </span>
     <footer id="footer" class="footer">
         <div class="addBook">
             <input type="text" placeholder="Add a book..." class="addInput" value="">
