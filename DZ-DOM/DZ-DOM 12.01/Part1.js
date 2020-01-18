@@ -19,3 +19,18 @@ let btnTree = document.querySelector('.btnTree');
 btnTree.onclick = function () {
     document.body.className = selectTree.value;
 }
+//part 4
+
+let inputFour = document.querySelector('.inputFour');
+let btnFour = document.querySelector('.btnFour');
+
+btnFour.onclick = function () {
+    let colorFour = inputFour.value;
+    document.body.style.setProperty('--main-color', colorFour);
+}
+
+//part 5
+let selectFive = document.querySelector('.selectFive');
+selectFive.onchange = function () {
+    document.body.style.setProperty('--main-color', this.value);
+}
