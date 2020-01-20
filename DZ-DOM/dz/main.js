@@ -16,14 +16,18 @@ function initEvenHandles() {
   htmlElements.addButton.addEventListener('click', addButtonClicked); //то же самое, что и https://i.imgur.com/lQPEyrM.png
   htmlElements.removeButton.addEventListener('click', removeColorClicked); //то же самое, что и https://i.imgur.com/1BNCoem.png
   htmlElements.removeSelectedButton.addEventListener('click', removeSelectedColorClicked); //то же самое что и https://i.imgur.com/SpWNYt7.png
+  htmlElements.input.addEventListener('focusout', addInputFocus);
 }
 
 initHTMLElements();
 initEvenHandles();
 
+function addInputFocus() {
+  addButtonClicked()
+}
+
 function selectColorValueChanged() {
   let value = htmlElements.selectColor.value;
-  console.log(value);
   setColor(value);
   // 1. Вызывает setColor, передает знчение выпадающего списка в качестве входного параметра
 }
@@ -33,7 +37,9 @@ function addButtonClicked() {
   let result = checkIfColorCanBeAdded(valueAdd);
   if (result == false) {
     alert(`There's no such a color`);
+    htmlElements.input.style.borderColor = 'red';
   } else {
+    htmlElements.input.style.borderColor = ''
     let resAdd = checkIfColorAdded(valueAdd);
     if (resAdd == false) {
       addColor(valueAdd);
@@ -59,7 +65,6 @@ function removeColorClicked() {
     removeColor(value);
     reset();
   }
-  console.log(value);
   // 1. Проверяет, ввел ли пользователь какой-то текст в текстовое поле
   // 1.1. Если не ввел, показывает сообщение 'Please enter a value first'
   // 1.2. Если ввел, вызвает removeColor, передавая значение текстового поля в качестве входного параметра. После чего вызывает reset.
@@ -140,6 +145,7 @@ function removeColor(color) {
     }
   } else {
     alert("There's no such a color");
+
   }
 }
 
