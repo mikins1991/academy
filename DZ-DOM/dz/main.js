@@ -87,6 +87,7 @@ function removeSelectedColorClicked() {
     alert('Please choose a value to remove')
   } else {
     removeColor(selVal);
+    reset();
   }
 
 }
@@ -117,10 +118,8 @@ function checkIfColorAdded(color) {
 // 2. Вызывает appendChild (https://mzl.la/2J1CTEo) на выпадающем списке, указывая созданный элмент option в качестве входящего параметра
 // 3. Вызывает функцию reset
 function addColor(color) {
-  let option = htmlElements.selectColor.lastElementChild;
-  let optionClone = option.cloneNode(htmlElements.selectColor);
-  htmlElements.selectColor.appendChild(optionClone).innerHTML = color;
-  htmlElements.selectColor.appendChild(optionClone).value = color;
+  let newOptionColor = new Option(color);
+  htmlElements.selectColor.appendChild(newOptionColor);
   reset();
 
 }
@@ -163,7 +162,7 @@ function removeColor(color) {
 // 2. Удаляет CSS переменную --color на body
 function reset() {
   htmlElements.input.value = '';
-  htmlElements.body.removeAttribute("style");
+  htmlElements.body.style.removeProperty('--color');
 }
 
 function checkIfColorCanBeAdded(color) {
