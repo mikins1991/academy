@@ -1,10 +1,10 @@
-const DIVDATE = document.querySelector('.divDate');
 const INPUTDATE = document.querySelector('.inputDate');
 
 INPUTDATE.addEventListener('focusout', birthdayInput);
 
 function birthdayInput() {
     const ONEDAY = 1000 * 60 * 60 * 24;
+    const DIVDATE = document.querySelector('.divDate');
 
     let dateNow = new Date();
     let dateBirth = new Date(Date.parse(INPUTDATE.value));
