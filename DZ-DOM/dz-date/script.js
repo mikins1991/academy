@@ -1,17 +1,21 @@
-const INPUTDATE = document.querySelector('.inputDate');
 const DIVDATE = document.querySelector('.divDate');
+
 INPUTDATE.addEventListener('focusout', birthdayInput);
 
 function birthdayInput() {
+    const INPUTDATE = document.querySelector('.inputDate');
+    const ONEDAY = 1000 * 60 * 60 * 24;
+
     let dateNow = new Date();
     let dateBirth = new Date(Date.parse(INPUTDATE.value));
     let birthDayThisYear = new Date(dateNow.getFullYear(), dateBirth.getMonth(), dateBirth.getDate())
-    let daysToBirthday = Math.ceil((birthDayThisYear - dateNow) / (1000 * 60 * 60 * 24));
+    let daysToBirthday = Math.ceil((birthDayThisYear - dateNow) / ONEDAY);
+
     if (daysToBirthday >= 0) {
         DIVDATE.innerText = `Next birthday in ${daysToBirthday} days`;
     } else {
         let birthDayLastYear = new Date(dateNow.getFullYear() + 1, dateBirth.getMonth(), dateBirth.getDate())
-        daysToBirthday = Math.ceil((birthDayLastYear - dateNow) / (1000 * 60 * 60 * 24));
+        daysToBirthday = Math.ceil((birthDayLastYear - dateNow) / ONEDAY);
         DIVDATE.innerText = `Next birthday in ${daysToBirthday} days`;
     }
 }
