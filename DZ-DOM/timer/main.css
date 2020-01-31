@@ -46,11 +46,22 @@ body {
   line-height: 35px;
 }
 
+.container .links  a.selected {
+  color: blue;
+}
+
+.container .links .black {
+  color: black;
+}
+
 .container .links .blue {
   color: blue;
 }
 
-
 .hidden {
   display: none;
+}
+
+.hiddenoff {
+  display: flexbox;
 }
