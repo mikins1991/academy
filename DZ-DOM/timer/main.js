@@ -1,4 +1,5 @@
-// setInterval(onIntervalNextTick, 1000);
+let timerId = setInterval(onIntervalNextTick, 100);
+let timeIdSet;
 
 const htmlElements = {};
 htmlElements.startBtn = document.querySelector('.container .buttons button.start');
@@ -8,74 +9,80 @@ htmlElements.clock = document.querySelector('.container .links .clock');
 htmlElements.stopwatch = document.querySelector('.container .links .stopwatch');
 htmlElements.timer = document.querySelector('.container .links .timer');
 htmlElements.output = document.querySelector('.container .output');
+htmlElements.links = document.querySelector('.links');
 htmlElements.select = document.querySelectorAll('.hidden')
 
-
-htmlElements.clock.addEventListener('click', clockNewColor);
-htmlElements.stopwatch.addEventListener('click', stopwatchNewColor);
-htmlElements.timer.addEventListener('click', timerNewColor);
 htmlElements.startBtn.addEventListener('click', buttonStartWarch);
 
-// function clockTime() {
-//     let date = new Date();
-//     let time = date.toTimeString().split(' ', 1);
-//     htmlElements.output.innerHTML = time;
-// }
+htmlElements.links.addEventListener('click', function (event) {
+    let link = event.target;
+    if (link.className == 'clock selected' || link.className == 'black') {
+        link.className = 'blue';
+        htmlElements.stopwatch.className = 'stopwatch';
+        htmlElements.timer.className = 'timer';
 
-function clockNewColor() {
-    htmlElements.clock.className = 'blue';
-    htmlElements.stopwatch.className = 'stopwatch';
-    htmlElements.timer.className = 'timer';
-    htmlElements.select[0].className = 'start hidden';
-    htmlElements.select[1].className = 'stop hidden';
-    htmlElements.select[2].className = 'reset hidden';
-    // clockTime()
-    setInterval(clockTime, 1000);
-    function clockTime() {
-        let date = new Date();
-        let time = date.toTimeString().split(' ', 1);
-        htmlElements.output.innerHTML = time;
+        clearInterval(timeIdSet);
+        resetStopWatch();
+        timerId = setInterval(onIntervalNextTick, 100);
+
+    } else if (link.className == 'stopwatch') {
+        link.className = 'blue';
+        htmlElements.timer.className = 'timer';
+        htmlElements.clock.className = 'black';
+
+        clearInterval(timerId);
+        addStopwatch();
+
+    } else if (link.className == 'timer') {
+        link.className = 'blue';
+        htmlElements.clock.className = 'black';
+        htmlElements.stopwatch.className = 'stopwatch';
+
+        resetStopWatch();
+        clearInterval(timerId);
     }
+})
+
+function onIntervalNextTick() {
+    let date = new Date();
+    let time = date.toTimeString().split(' ', 1);
+    htmlElements.output.innerHTML = time;
 }
 
-function stopwatchNewColor() {
-    htmlElements.stopwatch.className = 'blue';
-    htmlElements.timer.className = 'timer';
-    htmlElements.clock.className = 'black';
-
+function addStopwatch() {
     htmlElements.select[0].className = 'start hiddenoff';
     htmlElements.select[1].className = 'stop hiddenoff';
     htmlElements.select[2].className = 'reset hiddenoff';
-    htmlElements.select[2].className = 'reset hiddenoff';
-    // htmlElements.output.className = 'stopwatch';
-    // htmlElements.output.document.querySelector('.stopwatch').innerHTML = `${00}:${00}`;
+    htmlElements.output.innerHTML = `${`0`}:${`00`}`;
+}
 
-    htmlElements.output.innerHTML = `${00}:${00}`;
+function resetStopWatch() {
+    htmlElements.select[0].className = 'start hidden';
+    htmlElements.select[1].className = 'stop hidden';
+    htmlElements.select[2].className = 'reset hidden';
 }
 
 function buttonStartWarch() {
     const startTime = new Date().getTime();
-    setInterval(Timer, 1000);
+    timeIdSet = setInterval(Timer, 1000);
     function Timer() {
         const difference = (new Date().getTime() - startTime) / 1000;
         let seconds = parseInt(difference % 60);
         const minutes = parseInt((difference / 60) % 60);
         if (seconds < 10) {
-            seconds = '0' + seconds
+            seconds = '0' + seconds;
         }
         htmlElements.output.innerHTML = `${minutes}:${seconds}`;
-        console.log(`${minutes}:${seconds}`);
     }
-}
 
-function timerNewColor() {
-    htmlElements.timer.className = 'blue';
-    htmlElements.clock.className = 'black';
-    htmlElements.stopwatch.className = 'stopwatch';
+    htmlElements.stopBtn.addEventListener('click', buttonStopWath);
+    function buttonStopWath() {
+        clearInterval(timeIdSet);
+    }
 
-    htmlElements.select[0].className = 'start hidden';
-    htmlElements.select[1].className = 'stop hidden';
-    htmlElements.select[2].className = 'reset hidden';
-
-
+    htmlElements.resetBtn.addEventListener('click', buttonResetWath);
+    function buttonResetWath() {
+        clearInterval(timeIdSet);
+        htmlElements.output.innerHTML = `${`0`}:${`00`}`;
+    }
 }
