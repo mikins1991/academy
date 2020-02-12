@@ -9,18 +9,23 @@ function hideButtons() {
     htmlElements.buttons.forEach(item => item.classList.add('hidden'));
 }
 
-function changeColorLinkStopwatch() {
+function removeSelect() {
     htmlElements.links.forEach(item => item.classList.remove('selected'));
+
+}
+
+function changeColorLinkStopwatch() {
+    removeSelect();
     htmlElements.stopwatch.classList.add('selected');
 }
 
 function changeColorLinkClock() {
-    htmlElements.links.forEach(item => item.classList.remove('selected'));
+    removeSelect();
     htmlElements.clock.classList.add('selected');
 }
 
 function changeColorLinkTimer() {
-    htmlElements.links.forEach(item => item.classList.remove('selected'));
+    removeSelect();
     htmlElements.timer.classList.add('selected');
 }
 

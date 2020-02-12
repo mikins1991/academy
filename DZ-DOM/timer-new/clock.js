@@ -1,8 +1,6 @@
 import { hideButtons, changeColorLinkClock } from './tabs.js';
 import { htmlElements } from './htmlElements.js';
 
-export { timerId };
-
 let timerId = setInterval(onIntervalNextTick, 1000);
 
 let timeIdSet;
@@ -19,3 +17,5 @@ function onIntervalNextTick() {
     let time = date.toTimeString().split(' ', 1);
     htmlElements.output.innerHTML = time;
 }
+
+export { timerId };
