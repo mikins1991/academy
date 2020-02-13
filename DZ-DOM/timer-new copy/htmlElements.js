@@ -9,4 +9,8 @@ htmlElements.output = document.querySelector('.container .output');
 htmlElements.buttons = document.querySelectorAll('.hidden');
 htmlElements.links = document.querySelectorAll('a');
 
+// htmlElements.startBtnTimer = document.querySelector('.container .buttons button.start.timer');
+// htmlElements.stopBtnTimer = document.querySelector('.container .buttons button.stop.timer');
+// htmlElements.resetBtnTimer = document.querySelector('.container .buttons button.reset.timer');
+
 export { htmlElements };

@@ -9,19 +9,34 @@ function hideButtons() {
     htmlElements.buttons.forEach(item => item.classList.add('hidden'));
 }
 
-function changeColorLinkStopwatch() {
+
+function showButtonsTimer() {
+    htmlElements.buttons.forEach(item => item.classList.remove('timer'));
+}
+
+function hideButtonsTimer() {
+    htmlElements.buttons.forEach(item => item.classList.add('timer'));
+}
+
+
+function removeSelect() {
     htmlElements.links.forEach(item => item.classList.remove('selected'));
+
+}
+
+function changeColorLinkStopwatch() {
+    removeSelect();
     htmlElements.stopwatch.classList.add('selected');
 }
 
 function changeColorLinkClock() {
-    htmlElements.links.forEach(item => item.classList.remove('selected'));
+    removeSelect();
     htmlElements.clock.classList.add('selected');
 }
 
 function changeColorLinkTimer() {
-    htmlElements.links.forEach(item => item.classList.remove('selected'));
+    removeSelect();
     htmlElements.timer.classList.add('selected');
 }
 
-export { showButtons, hideButtons, changeColorLinkTimer, changeColorLinkStopwatch, changeColorLinkClock };
+export { showButtons, hideButtons, changeColorLinkTimer, changeColorLinkStopwatch, changeColorLinkClock, showButtonsTimer, hideButtonsTimer };

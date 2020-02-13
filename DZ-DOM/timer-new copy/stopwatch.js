@@ -1,28 +1,38 @@
-import { showButtons, changeColorLinkStopwatch } from './tabs.js';
+import { showButtons, changeColorLinkStopwatch, showButtonsTimer } from './tabs.js';
 import { htmlElements } from './htmlElements.js';
 import { timerId } from './clock.js';
+import { timerSet } from './timer.js';
 
 export let timeIdSet;
 let startTime;
 let momentSecond = 0;
 let lastSecond = 0;
 
-htmlElements.startBtn.addEventListener('click', buttonStartClick);
-htmlElements.stopBtn.addEventListener('click', buttonStopClick);
-htmlElements.resetBtn.addEventListener('click', buttonResetClick);
-
 htmlElements.stopwatch.onclick = function () {
     showButtons();
+    showButtonsTimer();
     changeColorLinkStopwatch();
     htmlElements.output.innerHTML = `${`0`}:${`00`}:${`00`}`;
     clearInterval(timerId);
+    clearInterval(timerSet);
 
 }
+
+function ButtonStopwath() { }
+
+ButtonStopwath.prototype.init = function () {
+    start: htmlElements.startBtn.addEventListener('click', buttonStartClick);
+    stop: htmlElements.stopBtn.addEventListener('click', buttonStopClick);
+    reset: htmlElements.resetBtn.addEventListener('click', buttonResetClick);
+
+}
+console.log(ButtonStopwath);
 
 function buttonStartClick() {
     timeIdSet = setInterval(intervalClick, 1000);
     startTime = new Date().getTime();
 }
+
 
 function buttonStopClick() {
     clearInterval(timeIdSet);
@@ -49,3 +59,4 @@ function intervalClick() {
     }
     htmlElements.output.innerHTML = `${hours}:${minutes}:${seconds}`;
 }
+export { ButtonStopwath };
