@@ -1,0 +1,67 @@
+body {
+  background-color: #f8f8f8;
+}
+
+.container {
+  text-align: center;
+  width: 300px;
+  padding: 30px;
+  background: white;
+  margin: auto;
+  margin-top: 100px;
+  border-radius: 8px;
+}
+
+.container .output {
+  margin-top: 20px;
+  font-size: 30px;
+  font-family: sans-serif;
+}
+
+.container .buttons {
+  margin-top: 30px;
+}
+
+.container .buttons button {
+  font-size: 15px;
+  background-color: whitesmoke;
+  border: none;
+  padding: 10px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.container .links {
+  /* padding: 10px; */
+  font-size: 15px;
+}
+
+.container .links a {
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 10px;
+  color: black;
+  font-family: sans-serif;
+  margin: 2px;
+  line-height: 35px;
+}
+
+.container .links  a.selected {
+  color: blue;
+}
+
+.container .links .black {
+  color: black;
+}
+
+.container .links .blue {
+  color: blue;
+}
+
+.hidden {
+  display: none;
+}
+
+.hiddenoff {
+  display: flexbox;
+}

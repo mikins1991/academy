@@ -1,23 +1,13 @@
 import { showButtons, changeColorLinkTimer, hideButtonsTimer } from './tabs.js';
 import { timerId } from './clock.js';
 import { htmlElements } from './htmlElements.js';
-import { ButtonStopwath } from './stopwatch.js';
+// import { ButtonStopwath } from './stopwatch.js';
 
 
 export let timerSet;
 let start;
 let momentSecond = 0;
 let lastSecond = 0;
-
-let buttonTimerAll = new ButtonStopwath();
-
-console.log(buttonTimerAll);
-
-// {
-htmlElements.startBtn.addEventListener('click', buttonStartClickTimer);
-// htmlElements.stopBtn.addEventListener('click', buttonStopClick);
-// htmlElements.resetBtn.addEventListener('click', buttonResetClick);
-// }
 
 htmlElements.timer.onclick = function () {
     showButtons();
@@ -28,9 +18,29 @@ htmlElements.timer.onclick = function () {
     // document.querySelector('button.start.timer').addEventListener('click', buttonStartClickTimer);
 
 }
+// let buttonTimerAll = new ButtonStopwath();
 
+// console.log(buttonTimerAll);
+function ButtonTimerAll() { }
+console.log(ButtonStopwath);
 
-function buttonStartClickTimer() {
+ButtonTimerAll.prototype.init = Object.create(ButtonStopwath.prototype.init, {})
+let buttonTimerAll = new ButtonTimerAll();
+console.log(ButtonTimerAll());
+
+function init() {
+    buttonTimerAll.init();
+}
+
+init();
+
+// {
+// htmlElements.startBtn.addEventListener('click', buttonStartClickTimer);
+// htmlElements.stopBtn.addEventListener('click', buttonStopClick);
+// htmlElements.resetBtn.addEventListener('click', buttonResetClick);
+// }
+
+function buttonStartClick() {
     timerSet = setInterval(intervalClickTimer, 1000);
     start = new Date().getTime();
 
