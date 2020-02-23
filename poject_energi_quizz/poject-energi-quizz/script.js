@@ -1,64 +1,76 @@
-import { topicOne } from './topicOne.js'
+import { currentTest } from './currentTest.js'
+
 const question = document.getElementById('question');
 const answers = Array.from(document.getElementsByClassName('answer-text'));
-console.log(answers);
 
-
+const MAX_QUESTIONS = 3;
 
 let currentQuestion = {};
 let acceptingAnswers = false;
 let score = 0;
-let questionCounter = 0;
+// let questionCounter = 0;
 let availableQuesions = [];
 
-// const CORRECT_BONUS = 10;
-const MAX_QUESTIONS = 3;
 
-function startGame() {
-    questionCounter = 0;
+function startTest() {
+    let questionCounter = 0;
     score = 0;
-    availableQuesions = [...topicOne];
+    availableQuesions = [...currentTest];
     getNewQuestion();
 };
+console.log(currentTest)
+
+console.log(availableQuesions)
 
 function getNewQuestion() {
     if (availableQuesions.length === 0 || questionCounter >= MAX_QUESTIONS) {
-        //go to the end page
         console.log('off');
+    } else {
+
+        currentQuestion = availableQuesions[questionCounter];
+        question.innerText = currentQuestion.question;
+        console.log(currentQuestion.question)
+
+        answers.forEach(answer => {
+            const number = answer.dataset["number"];
+            answer.innerText = currentQuestion["answer" + number];
+        });
+
+
+        // acceptingAnswers = true;
+        questionCounter++;
     }
-
-    questionCounter++;
-    const questionIndex = Math.floor(Math.random() * availableQuesions.length);
-    currentQuestion = availableQuesions[questionIndex];
-    question.innerText = currentQuestion.question;
-
-    answers.forEach(answer => {
-        const number = answer.dataset["number"];
-        answer.innerText = currentQuestion["answer" + number];
-    });
-
-    availableQuesions.splice(questionIndex, 1);
-    acceptingAnswers = true;
 };
 
 answers.forEach(answer => {
     answer.addEventListener("click", event => {
-        if (!acceptingAnswers) return;
+        // if (!acceptingAnswers) return;
 
-        acceptingAnswers = false;
+        // acceptingAnswers = false;
+
         const selectedChoice = event.target;
         const selectedAnswer = selectedChoice.dataset["number"];
 
-        const classToApply =
-            selectedAnswer == currentQuestion.answerCorrect ? "correct" : "incorrect";
+        // const classToApply =
+        if (selectedAnswer == currentQuestion.answerCorrect) {
+            selectedChoice.style.backgroundColor = 'green';
+            "correct"
 
-        selectedChoice.parentElement.classList.add(classToApply);
+        } else {
+            selectedChoice.style.backgroundColor = 'red';
+
+            "incorrect"
+        };
+
+        // selectedChoice.parentElement.classList.add(classToApply);
 
         setTimeout(() => {
-            selectedChoice.parentElement.classList.remove(classToApply);
+            selectedChoice.style.backgroundColor = '';
+
+            // selectedChoice.parentElement.classList.remove(classToApply);
             getNewQuestion();
-        }, 500);
+        }, 1500);
     });
 });
 
-startGame();
+startTest();

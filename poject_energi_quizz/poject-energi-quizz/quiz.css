@@ -1,6 +1,7 @@
-:root {
+html {
     background-color: rgb(10, 98, 121);
     font-size: 62.5%;
+    font-size: 16px;
 }
   
 * {
@@ -13,18 +14,18 @@
   
  
 h2 {
-    font-size: 3.2rem;
+    font-size: 1rem;
     margin-bottom: 3rem;
     font-weight: 550;
 }
   
 .container {
-    width: 100vw;
-    height: 100vh;
+    width: 60%;
+    height: 90%;
     display: flex;
     justify-content: center;
     align-items: center;
-    max-width: 80rem;
+    /* max-width: 80rem; */
     margin: 0 auto;
     padding: 2rem;
 }
@@ -33,7 +34,7 @@ h2 {
     display: flex;
     margin-bottom: 0.5rem;
     width: 100%;
-    font-size: 1.8rem;
+    font-size: 1rem;
     border: 0.1rem solid rgba(7, 0, 0, 0.25);
     background-color: white;
     
@@ -47,15 +48,18 @@ h2 {
 }
   
 .answer-prefix {
-    padding: 1.5rem 2.5rem;
+    padding: 1rem 2rem;
     background-color: black;
     color: white;
 }
   
 .answer-text {
-    padding: 2rem;
+    padding: 1rem;
     width: 100%;
 }
 
+.flex-column {
+    width: 100%;
+}
 
   
