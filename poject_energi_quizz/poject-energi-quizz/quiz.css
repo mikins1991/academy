@@ -1,7 +1,7 @@
 html {
     background-color: rgb(10, 98, 121);
     font-size: 62.5%;
-    font-size: 16px;
+    /* font-size: 16px; */
 }
   
 * {
@@ -14,27 +14,29 @@ html {
   
  
 h2 {
-    font-size: 1rem;
+    font-size: 2rem;
     margin-bottom: 3rem;
     font-weight: 550;
 }
   
 .container {
-    width: 60%;
-    height: 90%;
+    width: 100vw;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    /* max-width: 80rem; */
+    max-width: 80rem;
     margin: 0 auto;
     padding: 2rem;
 }
+
+
 
 .answer-container {
     display: flex;
     margin-bottom: 0.5rem;
     width: 100%;
-    font-size: 1rem;
+    font-size: 2rem;
     border: 0.1rem solid rgba(7, 0, 0, 0.25);
     background-color: white;
     
@@ -62,4 +64,58 @@ h2 {
     width: 100%;
 }
 
+#hud {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem;
+
+}
+  
+.hud-prefix {
+    text-align: center;
+    font-size: 2rem;
+}
+  
+.hud-timer {
+    text-align: center;
+    font-size: 2rem;
+}
+  
+#progressBar {
+    width: 20rem;
+    height: 4rem;
+    border: 0.3rem solid black;
+    margin-top: 1.5rem;
+}
+  
+#progressBarFull {
+    height: 3.4rem;
+    background-color: #56a5eb;
+    width: 0%;
+}
+
+.btn-success {
+
+}
+
+.btn {
+    color: #fff;
+    background-color: #5cb85c;
+    border-color: #5cb85c;
+    display: block;
+    margin-top: 1rem;
+    margin-left: auto;
+    text-align: center;
+    border: 1px solid transparent;
+    padding: 1rem 1rem;
+    font-size: 2rem;
+    transition: all .2s ease-in-out;
+}
+
+.btn:hover {
+    cursor: pointer;
+    box-shadow: 0 0.4rem 1.4rem 0 #5cb85c;
+    transform: translateY(-0.1rem);
+    transition: transform 150ms;
+}
   

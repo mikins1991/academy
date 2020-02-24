@@ -1,75 +1,79 @@
 import { currentTest } from './currentTest.js'
+import { startTimer, stopTimer } from './timer.js'
 
 const question = document.getElementById('question');
 const answers = Array.from(document.getElementsByClassName('answer-text'));
-
+const progressText = document.getElementById('progressText');
+const btnNext = document.getElementById('next');
 const MAX_QUESTIONS = 3;
 
 let currentQuestion = {};
-let acceptingAnswers = false;
-let score = 0;
-// let questionCounter = 0;
+let questionCounter = 0;
 let availableQuesions = [];
-
+let progressCounter = 0;
 
 function startTest() {
-    let questionCounter = 0;
-    score = 0;
+    questionCounter = 0;
+
     availableQuesions = [...currentTest];
     getNewQuestion();
+    startTimer();
 };
-console.log(currentTest)
-
-console.log(availableQuesions)
 
 function getNewQuestion() {
     if (availableQuesions.length === 0 || questionCounter >= MAX_QUESTIONS) {
         console.log('off');
+        stopTimer();
     } else {
 
         currentQuestion = availableQuesions[questionCounter];
         question.innerText = currentQuestion.question;
-        console.log(currentQuestion.question)
 
         answers.forEach(answer => {
             const number = answer.dataset["number"];
             answer.innerText = currentQuestion["answer" + number];
         });
-
-
-        // acceptingAnswers = true;
         questionCounter++;
     }
+    progressText.innerHTML = `Вопрос ${questionCounter}/${MAX_QUESTIONS}. Правильно ${progressCounter}`
+
 };
 
 answers.forEach(answer => {
-    answer.addEventListener("click", event => {
-        // if (!acceptingAnswers) return;
 
-        // acceptingAnswers = false;
+    answer.addEventListener("click", event => {
 
         const selectedChoice = event.target;
         const selectedAnswer = selectedChoice.dataset["number"];
 
-        // const classToApply =
         if (selectedAnswer == currentQuestion.answerCorrect) {
             selectedChoice.style.backgroundColor = 'green';
-            "correct"
+            progressCounter++;
 
         } else {
             selectedChoice.style.backgroundColor = 'red';
 
-            "incorrect"
+            answers.forEach(answer => {
+                const correct = answer.dataset["number"];
+                if (correct == currentQuestion.answerCorrect) {
+                    answer.style.backgroundColor = 'green';
+                }
+            });
         };
 
-        // selectedChoice.parentElement.classList.add(classToApply);
+        progressText.innerHTML = `Вопрос ${questionCounter}/${MAX_QUESTIONS}. Правильно ${progressCounter}`
 
-        setTimeout(() => {
+        // setTimeout(() => {
+        btnNext.onclick = function () {
             selectedChoice.style.backgroundColor = '';
 
-            // selectedChoice.parentElement.classList.remove(classToApply);
+            answers.forEach(answer => {
+                answer.style.backgroundColor = '';
+            });
+
             getNewQuestion();
-        }, 1500);
+        };
+        // }, 1500);
     });
 });
 
