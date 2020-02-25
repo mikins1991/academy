@@ -1,7 +1,7 @@
 const divTimer = document.getElementById('timer');
 let momentSecond = 0;
 let lastSecond = 0;
-let timerSet;
+export let timerSet;
 let start;
 
 function startTimer() {
@@ -13,7 +13,7 @@ function startTimer() {
 
 function intervalClickTimer() {
 
-    let minutesOn = 15;
+    let minutesOn = 5;
     const difference = minutesOn - ((new Date().getTime() - start) / 1000);
     momentSecond = difference + lastSecond;
     let seconds = parseInt(momentSecond % 60);
@@ -39,10 +39,28 @@ function intervalClickTimer() {
     }
 }
 
+var modal = document.getElementById("my_modal");
+var btn = document.getElementById("btn_modal_window");
+var span = document.getElementsByClassName("close_modal_window")[0];
+
+// btn.onclick = function () {
+//     modal.style.display = "block";
+// }
+
+span.onclick = function () {
+    modal.style.display = "none";
+}
+
+window.onclick = function (event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
 function stopTimer() {
     clearInterval(timerSet);
     lastSecond = 0;
     divTimer.innerHTML = `${`00`}:${`00`}`;
+    modal.style.display = "block";
 
 }
 

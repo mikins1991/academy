@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Quick Quiz - Play</title>
-    <!-- <link rel="stylesheet" href="app.css" /> -->
+    <link rel="stylesheet" href="modal.css" />
     <link rel="stylesheet" href="quiz.css" />
 </head>
 
@@ -50,17 +50,23 @@
                 <p class="answer-text" data-number="4">answer 4</p>
             </div>
             <div id="submit">
-                <button name="next" id="next" class="btn btn-success">Next question</button>
+                <button name="next" id="next" class="btn btn-success">Следующий вопрос</button>
             </div>
         </div>
-        <div class="modal">
-            <h2 class='modal-text'>ответы</h1>
-        </div>
-    </div>
-    <script src="script.js" type="module"></script>
-    <!-- <script src="currentTest.js" type="module"></script> -->
 
-    <!-- <script src="topicOne.js.js" type="module"></script> -->
+
+
+        <div id="my_modal" class="modal">
+            <div class="modal_content">
+                <span class="close_modal_window">×</span>
+                <p>Время теста истекло</p>
+                <button class="btnmod">Завершить</button>
+            </div>
+        </div>
+        <script src="script.js" type="module"></script>
+        <!-- <script src="currentTest.js" type="module"></script> -->
+
+        <!-- <script src="topicOne.js.js" type="module"></script> -->
 
 </body>
 
