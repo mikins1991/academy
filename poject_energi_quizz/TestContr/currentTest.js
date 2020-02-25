@@ -1,6 +1,6 @@
-import { topicOne } from './topicOne.js'
-import { topicTwo } from './topicTwo.js'
-import { topicTree } from './topicTree.js'
+import { topicOne } from '../topics/topicOne.js'
+import { topicTwo } from '../topics/topicTwo.js'
+import { topicTree } from '../topics/topicTree.js'
 
 let allQuesions = [topicOne, topicTwo, topicTree];
 

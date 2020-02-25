@@ -3,6 +3,7 @@ import { startTimer, stopTimer, timerSet } from './timer.js'
 
 const question = document.getElementById('question');
 const answers = Array.from(document.getElementsByClassName('answer-text'));
+const answercont = Array.from(document.getElementsByName('answer-container'));
 const progressText = document.getElementById('progressText');
 const btnNext = document.getElementById('next');
 const MAX_QUESTIONS = 3;
@@ -33,6 +34,11 @@ function getNewQuestion() {
         currentQuestion = availableQuesions[questionCounter];
         question.innerText = currentQuestion.question;
 
+        answercont.forEach(answer => {
+            answer.style.display = 'flex';
+        });
+
+
         answers.forEach(answer => {
             const number = answer.dataset['number'];
             answer.innerText = currentQuestion['answer' + number];
@@ -43,13 +49,6 @@ function getNewQuestion() {
     progressText.innerHTML = `Вопрос ${questionCounter}/${MAX_QUESTIONS}. Правильно ${progressCounter}`
 
 };
-
-function stoptTimer() {
-    clearInterval(timerSet);
-    lastSecond = 0;
-    divTimer.innerHTML = `${`00`}:${`00`}`;
-
-}
 
 answers.forEach(answer => {
 

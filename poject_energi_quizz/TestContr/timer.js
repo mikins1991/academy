@@ -13,7 +13,7 @@ function startTimer() {
 
 function intervalClickTimer() {
 
-    let minutesOn = 5;
+    let minutesOn = 15;
     const difference = minutesOn - ((new Date().getTime() - start) / 1000);
     momentSecond = difference + lastSecond;
     let seconds = parseInt(momentSecond % 60);
@@ -47,15 +47,15 @@ var span = document.getElementsByClassName("close_modal_window")[0];
 //     modal.style.display = "block";
 // }
 
-span.onclick = function () {
-    modal.style.display = "none";
-}
+// span.onclick = function () {
+//     modal.style.display = "none";
+// }
 
-window.onclick = function (event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
+// window.onclick = function (event) {
+//     if (event.target == modal) {
+//         modal.style.display = "none";
+//     }
+// }
 function stopTimer() {
     clearInterval(timerSet);
     lastSecond = 0;

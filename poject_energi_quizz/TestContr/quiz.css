@@ -30,17 +30,14 @@ h2 {
     padding: 2rem;
 }
 
-
-
 .answer-container {
-    display: flex;
+    display: none;
     margin-bottom: 0.5rem;
     width: 100%;
     font-size: 2rem;
     border: 0.1rem solid rgba(7, 0, 0, 0.25);
     background-color: white;
-    
-  }
+}
   
 .answer-container:hover {
     cursor: pointer;
@@ -49,7 +46,7 @@ h2 {
     transition: transform 150ms;
 }
   
-.answer-prefix {
+.answer-block {
     padding: 1rem 2rem;
     background-color: black;
     color: white;
@@ -66,35 +63,22 @@ h2 {
 
 /* HUB */
 
-#hud {
+#info {
     display: flex;
     justify-content: space-between;
     padding: 2rem;
-
 }
   
-.hud-prefix {
+.progressText {
     text-align: center;
     font-size: 2rem;
 }
   
-.hud-timer {
+.info-timer {
     text-align: center;
     font-size: 2rem;
 }
   
-#progressBar {
-    width: 20rem;
-    height: 4rem;
-    border: 0.3rem solid black;
-    margin-top: 1.5rem;
-}
-  
-#progressBarFull {
-    height: 3.4rem;
-    background-color: #56a5eb;
-    width: 0%;
-}
 
 .btn-success {
 

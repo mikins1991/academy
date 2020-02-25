@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Quick Quiz - Play</title>
+    <title>Energy Quiz - Test1</title>
     <link rel="stylesheet" href="modal.css" />
     <link rel="stylesheet" href="quiz.css" />
 </head>
@@ -15,18 +15,17 @@
 
         <div id="game" class="justify-center flex-column">
 
-            <div id="hud">
-                <div id="hud-item">
-                    <p id="progressText" class="hud-prefix">
+            <div id="info">
+                <div id="info-item">
+                    <p id="progressText" class="progressText">
 
                     </p>
-
                 </div>
-                <div id="hud-item">
-                    <p class="hud-prefix">
+                <div id="info-item">
+                    <p class="progressText">
                         Таймер
                     </p>
-                    <div class="hud-timer" id="timer">
+                    <div class="info-timer" id="timer">
 
                     </div>
                 </div>
@@ -34,19 +33,19 @@
 
             <h2 id="question">What is the answer to this questions?</h2>
             <div class="answer-container">
-                <p class="answer-prefix">1</p>
+                <p class="answer-block">1</p>
                 <p class="answer-text" data-number="1">answer 1</p>
             </div>
             <div class="answer-container">
-                <p class="answer-prefix">2</p>
+                <p class="answer-block">2</p>
                 <p class="answer-text" data-number="2">answer 2</p>
             </div>
             <div class="answer-container">
-                <p class="answer-prefix">3</p>
+                <p class="answer-block">3</p>
                 <p class="answer-text" data-number="3">answer 3</p>
             </div>
             <div class="answer-container">
-                <p class="answer-prefix">4</p>
+                <p class="answer-block">4</p>
                 <p class="answer-text" data-number="4">answer 4</p>
             </div>
             <div id="submit">
@@ -54,13 +53,14 @@
             </div>
         </div>
 
-
-
         <div id="my_modal" class="modal">
             <div class="modal_content">
-                <span class="close_modal_window">×</span>
-                <p>Время теста истекло</p>
-                <button class="btnmod">Завершить</button>
+                <p class="modalText">Время теста истекло</p>
+                <button class="btnmod">
+                    <a href="../PostTest/post.html">
+                        Завершить
+                    </a>
+                </button>
             </div>
         </div>
         <script src="script.js" type="module"></script>
