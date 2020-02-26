@@ -95,7 +95,7 @@ btnNext.addEventListener('click', function () {
 
 startTest();
 
-
+export { startTest }
 
 
 

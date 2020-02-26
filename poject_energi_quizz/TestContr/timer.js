@@ -1,3 +1,5 @@
+import { startTest } from '../TestContr/script.js';
+
 const divTimer = document.getElementById('timer');
 let momentSecond = 0;
 let lastSecond = 0;
@@ -7,13 +9,13 @@ let start;
 function startTimer() {
     timerSet = setInterval(intervalClickTimer, 1000);
     start = new Date().getTime();
-    divTimer.innerHTML = `${`00`}:${`15`}`;
+    divTimer.innerHTML = `${`01`}:${`05`}`;
 
 }
 
 function intervalClickTimer() {
 
-    let minutesOn = 15;
+    let minutesOn = 65;
     const difference = minutesOn - ((new Date().getTime() - start) / 1000);
     momentSecond = difference + lastSecond;
     let seconds = parseInt(momentSecond % 60);
@@ -39,12 +41,12 @@ function intervalClickTimer() {
     }
 }
 
-var modal = document.getElementById("my_modal");
-var btn = document.getElementById("btn_modal_window");
-var span = document.getElementsByClassName("close_modal_window")[0];
+// var modal = document.getElementById("my_modal");
+// var btn = document.getElementById("btnmod");
+// var span = document.getElementsByClassName("close_modal_window")[0];
 
 // btn.onclick = function () {
-//     modal.style.display = "block";
+//     startTest();
 // }
 
 // span.onclick = function () {

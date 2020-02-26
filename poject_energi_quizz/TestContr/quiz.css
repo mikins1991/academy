@@ -31,7 +31,7 @@ h2 {
 }
 
 .answer-container {
-    display: none;
+    display: flex;
     margin-bottom: 0.5rem;
     width: 100%;
     font-size: 2rem;
